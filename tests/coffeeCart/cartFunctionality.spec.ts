@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('TC-1 Available Tabs', async ({ page }) => {
+test('TC-1 Available Tabs', {tag: "@smoke"}, async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await expect(page.getByText('menucart (0)github')).toBeVisible();
 });
 
 
-test('TC-2 Initially Cart Is Empty', async ({ page }) => {
+test('TC-2 Initially Cart Is Empty', {tag: "@smoke"}, async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await expect(page.locator('[data-test="checkout"]')).toContainText('Total: $0.00');
   await page.getByRole('link', { name: 'Cart page' }).click();
@@ -14,7 +14,7 @@ test('TC-2 Initially Cart Is Empty', async ({ page }) => {
 });
 
 
-test('TC-3 Add Item To Cart', async ({ page }) => {
+test('TC-3 Add Item To Cart', {tag: "@smoke"}, async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.getByRole('link', { name: 'Menu page' }).click();
   await expect(page.locator('[data-test="checkout"]')).toContainText('Total: $0.00');
@@ -26,7 +26,7 @@ test('TC-3 Add Item To Cart', async ({ page }) => {
 });
 
 
-test('TC-4 Increase/Decrease Qty Of Item', async ({ page }) => {
+test('TC-4 Increase/Decrease Qty Of Item', {tag: "@smoke"}, async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.getByRole('link', { name: 'Menu page' }).click();
   await expect(page.locator('[data-test="checkout"]')).toContainText('Total: $0.00');
@@ -43,7 +43,7 @@ test('TC-4 Increase/Decrease Qty Of Item', async ({ page }) => {
 });
 
 
-test('TC-5 Delete Items From Cart', async ({ page }) => {
+test('TC-5 Delete Items From Cart', {tag: "@smoke"},async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.getByRole('link', { name: 'Menu page' }).click();
   await expect(page.locator('[data-test="checkout"]')).toContainText('Total: $0.00');
