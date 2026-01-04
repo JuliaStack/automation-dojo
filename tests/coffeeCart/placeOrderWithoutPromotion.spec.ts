@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('TC-7 Place Order', async ({ page }) => {
+test('TC-7 Place order without promotion', async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.getByRole('link', { name: 'Menu page' }).click();
   await expect(page.locator('[data-test="checkout"]')).toContainText('Total: $0.00');
