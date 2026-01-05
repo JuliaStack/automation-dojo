@@ -43,7 +43,7 @@ test('TC-4 Increase/Decrease Qty Of Item', {tag: "@smoke"}, async ({ page }) => 
 });
 
 
-test('TC-5 Delete Items From Cart', {tag: "@smoke"},async ({ page }) => {
+test('TC-5 Delete Items From Cart', {tag: "@smoke"}, async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.getByRole('link', { name: 'Menu page' }).click();
   await expect(page.locator('[data-test="checkout"]')).toContainText('Total: $0.00');
