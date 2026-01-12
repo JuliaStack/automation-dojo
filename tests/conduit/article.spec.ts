@@ -54,3 +54,35 @@ test('AQA-5 delete an article', async ({ page}) => {
   await page.getByRole('button', { name: 'Delete Article' }).first().click();
   await expect(page.locator('.article-preview').filter({ hasText: article.title })).not.toBeVisible();
 });
+
+
+test('AQA-8 edit an article', async ({ page}) => {
+  const user = generateRandomUser();
+  const article = generateRandomArticle();
+  const updatedArticle = generateRandomArticle();
+
+  // Sign up
+  await page.goto('https://demo.learnwebdriverio.com/register');
+  await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
+  await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
+  await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
+  await page.getByRole('button', { name: 'Sign up' }).click();
+  await expect(page.getByRole('link', { name: user.username })).toBeVisible();
+
+  // Create article
+  await page.getByRole('link', { name: 'New Article' }).click();
+  await page.getByRole('textbox', { name: 'Article Title' }).fill(article.title);
+  await page.getByRole('textbox', { name: 'What\'s this article about?' }).fill(article.description);
+  await page.getByRole('textbox', { name: 'Write your article (in markdown)' }).fill(article.text);
+  await page.getByRole('textbox', { name: 'Enter tags' }).fill('Playwright, Automation, Testing');
+  await page.getByRole('button', { name: 'Publish Article' }).click();
+  await expect(page.locator('h1')).toHaveText(article.title);
+  
+  // Edit article
+  await page.getByRole('link', { name: 'Edit Article' }).first().click();
+  await page.getByRole('textbox', { name: 'Article Title' }).fill(updatedArticle.title);
+  await page.getByRole('textbox', { name: 'What\'s this article about?' }).fill(updatedArticle.description);
+  await page.getByRole('textbox', { name: 'Write your article (in markdown)' }).fill(updatedArticle.text);
+  await page.getByRole('button', { name: 'Publish Article' }).click();
+  await expect(page.locator('h1')).toHaveText(updatedArticle.title);
+});
