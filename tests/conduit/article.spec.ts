@@ -1,12 +1,16 @@
 import { test, expect } from '@playwright/test';
 import { generateRandomUser, generateRandomArticle } from '../utils/testData';
 
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://demo.learnwebdriverio.com');
+});
+
 test('AQA-4 create a new article', async ({ page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
 
   // Sign up
-  await page.goto('https://demo.learnwebdriverio.com/register');
+  await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
   await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
@@ -26,13 +30,12 @@ test('AQA-4 create a new article', async ({ page}) => {
   await expect(page.locator('.article-preview').filter({ hasText: article.title }).first()).toBeVisible();
 }); 
 
-
 test('AQA-5 delete an article', async ({ page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
 
   // Sign up
-  await page.goto('https://demo.learnwebdriverio.com/register');
+  await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
   await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
@@ -62,7 +65,7 @@ test('AQA-8 edit an article', async ({ page}) => {
   const updatedArticle = generateRandomArticle();
 
   // Sign up
-  await page.goto('https://demo.learnwebdriverio.com/register');
+  await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
   await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
