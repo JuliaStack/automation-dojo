@@ -13,7 +13,7 @@ test('AQA-4 create a new article', async ({ page}) => {
   await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
-  await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill('qwerty123');
   await page.getByRole('button', { name: 'Sign up' }).click();
   await expect(page.getByRole('link', { name: user.username })).toBeVisible();
 
@@ -38,7 +38,7 @@ test('AQA-5 delete an article', async ({ page}) => {
   await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
-  await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill('qwerty123');
   await page.getByRole('button', { name: 'Sign up' }).click();
   await expect(page.getByRole('link', { name: user.username })).toBeVisible();
 
@@ -68,7 +68,7 @@ test('AQA-8 edit an article', async ({ page}) => {
   await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
-  await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill('qwerty123');
   await page.getByRole('button', { name: 'Sign up' }).click();
   await expect(page.getByRole('link', { name: user.username })).toBeVisible();
 

@@ -10,7 +10,7 @@ test('AQA-1 sign up to conduit', async ({ page }) => {
   await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
-  await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill('qwerty123');
   await page.getByRole('button', { name: 'Sign up' }).click();
   await expect(page.getByRole('link', { name: user.username })).toBeVisible();
 });
@@ -28,7 +28,7 @@ test('AQA-3 logout from conduit', async ({ page }) => {
   await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(user.username);
   await page.getByRole('textbox', { name: 'Email' }).fill(user.email);
-  await page.getByRole('textbox', { name: 'Password' }).fill(user.password);
+  await page.getByRole('textbox', { name: 'Password' }).fill('qwerty123');
   await page.getByRole('button', { name: 'Sign up' }).click();
   await expect(page.getByRole('link', { name: user.username })).toBeVisible();
   await page.getByRole('link', { name: 'Settings' }).click();
