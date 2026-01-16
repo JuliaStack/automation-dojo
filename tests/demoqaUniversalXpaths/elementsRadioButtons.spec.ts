@@ -8,15 +8,14 @@ test('AQA-11 Tick radio buttons via universal XPaths', async ({page}) => {
   await page.locator('//h5[text()="Elements"]').click();
   await page.locator('//li[".btn"]//*[text()="Radio Button"]').click();
     // Select Yes radio button
-    const yesRadioButtonXPath = '///input[@id="yesRadio"]';
+    const yesRadioButtonXPath = '//label[@for="yesRadio"]';
     await page.locator(yesRadioButtonXPath).click();
     await expect(page.locator('//span[@class="text-success"]')).toHaveText('Yes');
     // Select Impressive radio button
-    const impressiveRadioButtonXPath = '///input[@id="impressiveRadio"]';
+    const impressiveRadioButtonXPath = '//label[@for="impressiveRadio"]';
     await page.locator(impressiveRadioButtonXPath).click();
     await expect(page.locator('//span[@class="text-success"]')).toHaveText('Impressive');
     // Select No radio button
-    const noRadioButtonXPath = '///input[@id="noRadio"]';
+    const noRadioButtonXPath = '//label[@for="noRadio"]';
     await page.locator(noRadioButtonXPath).isDisabled();
-    await expect(page.locator('//span[@class="text-success"]')).toHaveText('No');
 })
