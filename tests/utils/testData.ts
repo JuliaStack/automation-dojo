@@ -12,30 +12,30 @@ export function generateRandomEmail(domain: string = 'example.com'): string {
   return `testuser${randomNum}@${domain}`;
 }
 
-export function generateRandomPassword(length: number = 12): string {
-  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-  const numbers = '0123456789';
-  const special = '!@#$%^&*';
+// export function generateRandomPassword(length: number = 12): string {
+//   const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//   const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+//   const numbers = '0123456789';
+//   const special = '!@#$%^&*';
   
-  let password = '';
-  password += uppercase[Math.floor(Math.random() * uppercase.length)];
-  password += lowercase[Math.floor(Math.random() * lowercase.length)];
-  password += numbers[Math.floor(Math.random() * numbers.length)];
-  password += special[Math.floor(Math.random() * special.length)];
+//   let password = '';
+//   password += uppercase[Math.floor(Math.random() * uppercase.length)];
+//   password += lowercase[Math.floor(Math.random() * lowercase.length)];
+//   password += numbers[Math.floor(Math.random() * numbers.length)];
+//   password += special[Math.floor(Math.random() * special.length)];
   
-  const allChars = uppercase + lowercase + numbers + special;
-  for (let i = password.length; i < length; i++) {
-    password += allChars[Math.floor(Math.random() * allChars.length)];
-  }
+//   const allChars = uppercase + lowercase + numbers + special;
+//   for (let i = password.length; i < length; i++) {
+//     password += allChars[Math.floor(Math.random() * allChars.length)];
+//   }
   
-  return password.split('').sort(() => Math.random() - 0.5).join('');
-}
+//   return password.split('').sort(() => Math.random() - 0.5).join('');
+// }
 
 export interface TestUser {
   username: string;
   email: string;
-  password: string;
+  // password: string;
 }
 
 export function generateRandomUser(): TestUser {
@@ -43,7 +43,7 @@ export function generateRandomUser(): TestUser {
   return {
     username,
     email: generateRandomEmail(),
-    password: generateRandomPassword(),
+    // password: generateRandomPassword(),
   };
 }
 
@@ -116,3 +116,12 @@ export function generateRandomArticle(): Article {
     text: generateRandomArticleText(),
   };
 }
+
+
+/*Universal XPath examples:
+only id has to be changed to reach different fields
+1 - //input[@id="userName"]/parent::div//*[contains(@class,"form-control")]
+2 - //input[@id="userEmail"]/parent::div//*[contains(@class,"form-control")]
+3 - //textarea[@placeholder="Current Address"]/parent::div//*[contains(@class,"form-control")]
+4 - //textarea[@placeholder="Permanent Address"]/parent::div//*[contains(@class,"form-control")]
+*/

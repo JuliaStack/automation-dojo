@@ -10,7 +10,7 @@ test('AQA-6 sign up to conduit using css selectors', async ({ page }) => {
   await page.locator('a[href="/register"]').click();
   await page.locator('[placeholder="Username"]').fill(user.username);
   await page.locator('[placeholder="Email"]').fill(user.email);
-  await page.locator('[placeholder="Password"]').fill(user.password);
+  await page.locator('[placeholder="Password"]').fill('qwerty123');
   await page.locator('button[class*="btn-primary"]').click();
   await expect(page.locator('a[href="/@' + user.username + '/"]')).toBeVisible();
 });
@@ -21,7 +21,7 @@ test('AQA-7 logout from conduit using css selectors', async ({ page }) => {
   await page.locator('a[href="/register"]').click();
   await page.locator('[placeholder="Username"]').fill(user.username);
   await page.locator('[placeholder="Email"]').fill(user.email);
-  await page.locator('[placeholder="Password"]').fill(user.password);
+  await page.locator('[placeholder="Password"]').fill('qwerty123');
   await page.locator('button[class*="btn-primary"]').click();
   await expect(page.locator('a[href="/@' + user.username + '/"]')).toBeVisible();
   await page.locator('a[href="/settings"]').click();
