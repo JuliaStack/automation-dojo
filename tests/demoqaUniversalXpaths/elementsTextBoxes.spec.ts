@@ -26,8 +26,8 @@ test('AQA-9 Fill text boxes via universal XPaths', async ({ page }) => {
     // Submit the form
     await page.locator('#submit').click();
     // Verify the submitted data
-    await expect(page.locator('//p[@id="name"]')).toHaveText('Name:John Doe');
-    await expect(page.locator('//p[@id="email"]')).toHaveText('Email:john.doe@example.com');
+    await expect(page.locator('//*[@id="name"]')).toHaveText('Name:John Doe');
+    await expect(page.locator('//*[@id="email"]')).toHaveText('Email:john.doe@example.com');
     await expect(page.locator('//p[@id="currentAddress"]')).toHaveText('Current Address :123 Main St, Springfield ');
     await expect(page.locator('//p[@id="permanentAddress"]')).toHaveText('Permananet Address :456 Oak Ave, Shelbyville');
 })
