@@ -11,22 +11,22 @@ test('AQA-10 Tick check boxes via universal XPaths', async ({page}) => {
     await page.locator('//button[@title="Expand all"]').click();
 
     //Select Notes checkbox
-    const notesCheckboxXPath = '//span[text()="Notes"]/preceding-sibling::span[@class="rct-checkbox"]';
+    const notesCheckboxXPath = '//*[text()="Notes"]/preceding-sibling::*[@class="rct-checkbox"]';
     await page.locator(notesCheckboxXPath).click();
-    await expect(page.locator('//div[@id="result"]//span[text()="notes"]')).toBeVisible();
+    await expect(page.locator('//*[@id="result"]//*[text()="notes"]')).toBeVisible();
 
     //Select React checkbox
-    const reactCheckboxXPath = '//span[text()="React"]/preceding-sibling::span[@class="rct-checkbox"]';
+    const reactCheckboxXPath = '//*[text()="React"]/preceding-sibling::*[@class="rct-checkbox"]';
     await page.locator(reactCheckboxXPath).click();
-    await expect(page.locator('//div[@id="result"]//span[text()="react"]')).toBeVisible();
+    await expect(page.locator('//*[@id="result"]//*[text()="react"]')).toBeVisible();
 
     //Select Private checkbox
-    const privateCheckboxXPath = '//span[text()="Private"]/preceding-sibling::span[@class="rct-checkbox"]';
+    const privateCheckboxXPath = '//*[text()="Private"]/preceding-sibling::*[@class="rct-checkbox"]';
     await page.locator(privateCheckboxXPath).click();
-    await expect(page.locator('//div[@id="result"]//span[text()="private"]')).toBeVisible();
+    await expect(page.locator('//*[@id="result"]//*[text()="private"]')).toBeVisible();
     
     //Select Word File.doc checkbox
-    const wordFileCheckboxXPath = '//span[text()="Word File.doc"]/preceding-sibling::span[@class="rct-checkbox"]';
+    const wordFileCheckboxXPath = '//*[text()="Word File.doc"]/preceding-sibling::*[@class="rct-checkbox"]';
     await page.locator(wordFileCheckboxXPath).click();
-    await expect(page.locator('//div[@id="result"]//span[text()="wordFile"]')).toBeVisible();
+    await expect(page.locator('//*[@id="result"]//*[text()="wordFile"]')).toBeVisible();
 })
