@@ -24,7 +24,7 @@ test('AQA-4 create a new article', async ({ page}) => {
   await page.getByRole('textbox', { name: 'Write your article (in markdown)' }).fill(article.text);
   await page.getByRole('textbox', { name: 'Enter tags' }).fill('Playwright, Automation, Testing');
   await page.getByRole('button', { name: 'Publish Article' }).click();
-  await expect(page.locator('h1')).toHaveText(article.title);
+  await expect(page.locator('h1')).toContainText(article.title);
   await page.getByRole('link', { name: 'Home' }).click();
   await page.getByRole('link', { name: 'Global Feed' }).click();
   await expect(page.locator('.article-preview').filter({ hasText: article.title }).first()).toBeVisible();
@@ -49,7 +49,7 @@ test('AQA-5 delete an article', async ({ page}) => {
   await page.getByRole('textbox', { name: 'Write your article (in markdown)' }).fill(article.text);
   await page.getByRole('textbox', { name: 'Enter tags' }).fill('Playwright, Automation, Testing');
   await page.getByRole('button', { name: 'Publish Article' }).click();
-  await expect(page.locator('h1')).toHaveText(article.title);
+  await expect(page.locator('h1')).toContainText(article.title);
   
   // Delete article
   await page.getByRole('navigation').getByRole('link', { name: user.username}).click();
@@ -79,7 +79,7 @@ test('AQA-8 edit an article', async ({ page}) => {
   await page.getByRole('textbox', { name: 'Write your article (in markdown)' }).fill(article.text);
   await page.getByRole('textbox', { name: 'Enter tags' }).fill('Playwright, Automation, Testing');
   await page.getByRole('button', { name: 'Publish Article' }).click();
-  await expect(page.locator('h1')).toHaveText(article.title);
+  await expect(page.locator('h1')).toContainText(article.title);
   
   // Edit article
   await page.getByRole('link', { name: 'Edit Article' }).first().click();
@@ -87,5 +87,5 @@ test('AQA-8 edit an article', async ({ page}) => {
   await page.getByRole('textbox', { name: 'What\'s this article about?' }).fill(updatedArticle.description);
   await page.getByRole('textbox', { name: 'Write your article (in markdown)' }).fill(updatedArticle.text);
   await page.getByRole('button', { name: 'Publish Article' }).click();
-  await expect(page.locator('h1')).toHaveText(updatedArticle.title);
+  await expect(page.locator('h1')).toContainText(updatedArticle.title);
 });

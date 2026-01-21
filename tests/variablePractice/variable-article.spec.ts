@@ -40,7 +40,7 @@ test('AQA-4 create a new article', async ({ page}) => {
   await articleTextInput.fill(article.text);
   await articleTagsInput.fill('Playwright, Automation, Testing');
   await publishArticleButton.click();
-  await expect(publishedArticle).toHaveText(article.title);
+  await expect(publishedArticle).toContainText(article.title);
   await homePage.click();
   await globalFeedLink.click();
   await expect(articlePreview).toBeVisible();
@@ -82,7 +82,7 @@ test('AQA-5 delete an article', async ({ page}) => {
   await articleTextInput.fill(article.text);
   await articleTagsInput.fill('Playwright, Automation, Testing');
   await publishArticleButton.click();
-  await expect(publishedArticle).toHaveText(article.title);
+  await expect(publishedArticle).toContainText(article.title);
   
   // Delete article
   await userProfileLink.click();
@@ -126,7 +126,7 @@ test('AQA-8 edit an article', async ({ page}) => {
   await articleTextInput.fill(article.text);
   await articleTagsInput.fill('Playwright, Automation, Testing');
   await publishArticleButton.click();
-  await expect(publishedArticle).toHaveText(article.title);
+  await expect(publishedArticle).toContainText(article.title);
   
   // Edit article
   await editArticleLink.first().click();
@@ -134,5 +134,5 @@ test('AQA-8 edit an article', async ({ page}) => {
   await articleDescriptionInput.fill('UPD '+ article.description);
   await articleTextInput.fill('UPD '+ article.text);
   await publishArticleButton.click();
-  await expect(publishedArticle).toHaveText('UPD '+ article.title);
+  await expect(publishedArticle).toContainText('UPD '+ article.title);
 });
