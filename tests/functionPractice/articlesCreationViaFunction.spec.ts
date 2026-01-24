@@ -6,11 +6,11 @@ test.beforeEach(async ({page}) => {
   await page.goto('https://demo.learnwebdriverio.com/');
 });
 
-async function signUp(page: Page, user: {username: string, email: string}) {
+async function signUp(page: Page, user: {username: string, email: string}, password: string) {
   await page.getByRole('link', {name: 'Sign up'}).click();
   await page.getByRole('textbox', {name: 'Username'}).fill(user.username);
   await page.getByRole('textbox', {name: 'Email'}).fill(user.email);
-  await page.getByRole('textbox', {name: 'Password'}).fill('qwerty123');
+  await page.getByRole('textbox', {name: 'Password'}).fill(password);
   await page.getByRole('button', {name: 'Sign up'}).click();
 }
 
@@ -25,7 +25,7 @@ async function createArticle(page: Page, article: {title: string, description: s
 
 test('AQA-17 sign up to conduit', async ({page}) => {
   const user = generateRandomUser();
-  await signUp(page, user);
+  await signUp(page, user, 'qwerty123');
   await expect(page.getByRole('link', {name: user.username})).toBeVisible();
 });
 
@@ -33,7 +33,7 @@ test('AQA-18 article creation', async ({page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
 
-  await signUp(page, user);
+  await signUp(page, user, 'qwerty123');
   await expect(page.getByRole('link', {name: user.username})).toBeVisible();
 
   for (let art = 0; art < 3; art++) {
