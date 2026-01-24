@@ -4,7 +4,7 @@ test.beforeEach(async ({page}) => {
   await page.goto('https://demoqa.com');
 });
 
-test('AQA-10 Tick check boxes via universal XPaths', async ({page}) => {
+test('AQA-14 Tick check boxes via universal XPaths', async ({page}) => {
   await page.locator('//h5[text()="Elements"]').click();
   await page.locator('//li[".btn"]//*[text()="Check Box"]').click();
     // Expand all

@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://demo.learnwebdriverio.com');
 });
 
-test('AQA-4 create a new article', async ({ page}) => {
+test('AQA-11 create a new article', async ({ page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
   const signupUrl = page.locator('a[href="/register"]');
@@ -46,7 +46,7 @@ test('AQA-4 create a new article', async ({ page}) => {
   await expect(articlePreview).toBeVisible();
 });
 
-test('AQA-5 delete an article', async ({ page}) => {
+test('AQA-12 delete an article', async ({ page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
   const signupUrl = page.locator('a[href="/register"]');
@@ -92,7 +92,7 @@ test('AQA-5 delete an article', async ({ page}) => {
 });
 
 
-test('AQA-8 edit an article', async ({ page}) => {
+test('AQA-13 edit an article', async ({ page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
   // const updatedArticle = generateRandomArticle();

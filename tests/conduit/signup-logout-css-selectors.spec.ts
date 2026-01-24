@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://demo.learnwebdriverio.com');
 });
 
-test('AQA-6 sign up to conduit using css selectors', async ({ page }) => {
+test('AQA-7 sign up to conduit using css selectors', async ({ page }) => {
   const user = generateRandomUser();
   await page.locator('a[href="/register"]').click();
   await page.locator('[placeholder="Username"]').fill(user.username);
@@ -16,7 +16,7 @@ test('AQA-6 sign up to conduit using css selectors', async ({ page }) => {
 });
 
 
-test('AQA-7 logout from conduit using css selectors', async ({ page }) => {
+test('AQA-8 logout from conduit using css selectors', async ({ page }) => {
   const user = generateRandomUser();
   await page.locator('a[href="/register"]').click();
   await page.locator('[placeholder="Username"]').fill(user.username);
