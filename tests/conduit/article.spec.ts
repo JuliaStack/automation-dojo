@@ -59,7 +59,7 @@ test('AQA-5 delete an article', async ({ page}) => {
 });
 
 
-test('AQA-8 edit an article', async ({ page}) => {
+test('AQA-6 edit an article', async ({ page}) => {
   const user = generateRandomUser();
   const article = generateRandomArticle();
   const updatedArticle = generateRandomArticle();
