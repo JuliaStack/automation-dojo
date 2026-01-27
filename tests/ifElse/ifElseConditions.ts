@@ -1,90 +1,107 @@
-function isEvenNumber(num: number) {
-    if (num % 2 === 0 && num > 0){
-        console.log("Even"); 
-    } 
-    else if (num === 0){
-        console.log("Zero");
+export function isEvenNumber(num: number) {
+  if (typeof num === "number") {
+    if (num % 2 === 0 && num !== 0) {
+      return "The number is even";
+    } else if (num === 0) {
+      return "The number is zero";
+    } else {
+      return "The number is odd";
     }
-    else {
-        console.log("Odd");
-    }
+  } else {
+    throw Error("Please provide a number");
+  }
 }
-isEvenNumber(23);
+console.log(isEvenNumber(56));
 
-function greetings(daytime: string) {
-    if (daytime < "12:00") {
-        console.log("Good morning");
-    } 
-    else if (daytime >= "12:00" && daytime < "18:00") {
-        console.log("Good afternoon");
-    }
-    else if (daytime > "24:00") {
-        console.log("Invalid time");
-    }
-    else {
-        console.log("Good evening");
-    }
+// Additional examples of if...else conditions
+export function greetings(daytime: string) {
+  if (daytime < "12:00") {
+    return "Good morning";
+  } else if (daytime >= "12:00" && daytime < "18:00") {
+    return "Good afternoon";
+  } else if (daytime > "24:00") {
+    return "Invalid time";
+  } else {
+    return "Good evening";
+  }
 }
-greetings("00:00");
+console.log(greetings("00:00"));
 
-function examineScore(score: number) {
+// Example usages of if...else conditions
+export function examineScore(score: number) {
+  if (typeof score === "number" && score >= 0 && score <= 100) {
     if (score >= 50) {
-        console.log("Test passed");
+      return "Test passed";
+    } else {
+      return "Test failed";
     }
-    else {
-        console.log("Test failed");
-    };
+  } else {
+    throw Error("Please provide a valid score between 0 and 100");
+  }
 }
-examineScore(50);
+console.log(examineScore(50));
 
-function voteAge(age: number) {
+// More examples of if...else conditions
+export function voteAge(age: number) {
+  if (typeof age === "number" && age >= 0) {
     if (age >= 18) {
-        console.log("Eligible to vote");
+      return "Eligible to vote";
+    } else {
+      return "Not eligible to vote";
     }
-    else {
-        console.log("Not eligible to vote");
-    }
+  } else {
+    throw Error("Please provide a valid age");
+  }
 }
-voteAge(18);
+console.log(voteAge(20));
 
-function numbersComparison(a: number, b: number) {
+// Additional examples of if...else conditions
+export function numbersComparison(a: number, b: number) {
+  //1 option to write
+  if (typeof a === "number" && typeof b === "number") {
     if (a > b) {
-        console.log("a is greater than b");
+      return "a is greater than b";
+    } else if (a < b) {
+      return "a is less than b";
+    } else {
+      return "a is equal to b";
     }
-    else if (a < b) {
-        console.log("a is less than b");
-    }
-    else {
-        console.log("a is equal to b");
-    }
-}
-numbersComparison(10, 11);
+  } else {
+    throw Error("Please provide numbers to compare");
+  }
 
-function trafficLight(color: string){
-    if (color === "green"){
-        console.log("Go");
-    }
-    else if (color === "yellow"){
-        console.log("Caution");
-    }
-    else if (color === "red"){
-        console.log("Stop");
-    }
-    else {
-        console.log("Invalid color");
-    }
+  /* 2 option to write - less code but harder to debug using breakpoints
+    if (a === b)
+        return 'a is equal to b';
+        return a > b ? 'a is greater than b' : 'a is less than b';*/
 }
-trafficLight("green");
+console.log(numbersComparison(5, -6));
 
-function numberDefiner(num: number) {
-    if (num > 0){
-        console.log("The number is positive");
-    }
-    else if(num === 0){
-        console.log("The number is zero");
-    }
-    else {
-        console.log("The number is negative");
-    }
+// More examples of if...else conditions
+export function trafficLight(color: string) {
+  if (color === "green") {
+    return "Go";
+  } else if (color === "yellow") {
+    return "Caution";
+  } else if (color === "red") {
+    return "Stop";
+  } else {
+    return "Invalid color";
+  }
 }
-numberDefiner(10);
+console.log(trafficLight("green"));
+
+export function numberDefiner(num: number) {
+  if (typeof num === "number") {
+    if (num > 0) {
+      return "The number is positive";
+    } else if (num === 0) {
+      return "The number is zero";
+    } else {
+      return "The number is negative";
+    }
+  } else {
+    throw Error("Please provide a number");
+  }
+}
+console.log(numberDefiner(321));

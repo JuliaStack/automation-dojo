@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
-function isPositive(number) {
+
+function isPositive(number: number): boolean {
   if (typeof number === "number") {
     if (number > 0) {
       console.log("number is positive");
