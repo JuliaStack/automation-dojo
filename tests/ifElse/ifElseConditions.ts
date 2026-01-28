@@ -86,10 +86,10 @@ export function trafficLight(color: string) {
   } else if (color === "red") {
     return "Stop";
   } else {
-    return "Invalid color";
+    return "Traffic light is broken";
   }
 }
-console.log(trafficLight("green"));
+console.log(trafficLight("red"));
 
 export function numberDefiner(num: number) {
   if (typeof num === "number") {
