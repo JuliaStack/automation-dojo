@@ -1,7 +1,7 @@
 import { describe } from "node:test";
 import { test, expect } from "@playwright/test";
 
-export function isArray(array: any[]): boolean {
+export function isArray(array: unknown): boolean {
   return Array.isArray(array);
 }
 console.log(isArray([1, 2, 3]));

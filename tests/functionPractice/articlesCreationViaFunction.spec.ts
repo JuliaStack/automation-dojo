@@ -11,13 +11,12 @@ const article = generateRandomArticle();
 
 async function signUp(
   page: Page,
-  user: { username: string; email: string },
-  password: string,
+  user: { username: string; email: string; password: string },
 ) {
   await page.getByRole("link", { name: "Sign up" }).click();
   await page.getByRole("textbox", { name: "Username" }).fill(user.username);
   await page.getByRole("textbox", { name: "Email" }).fill(user.email);
-  await page.getByRole("textbox", { name: "Password" }).fill(password);
+  await page.getByRole("textbox", { name: "Password" }).fill(user.password);
   await page.getByRole("button", { name: "Sign up" }).click();
 }
 
@@ -42,12 +41,12 @@ async function createArticle(
 }
 
 test("AQA-17 sign up to conduit", async ({ page }) => {
-  await signUp(page, user, "qwerty123");
+  await signUp(page, user);
   await expect(page.getByRole("link", { name: user.username })).toBeVisible();
 });
 
 test("AQA-18 article creation", { tag: "@e2e" }, async ({ page }) => {
-  await signUp(page, user, "qwerty123");
+  await signUp(page, user);
   await expect(page.getByRole("link", { name: user.username })).toBeVisible();
 
   // Create 3 unique articles with titles stored in an array
