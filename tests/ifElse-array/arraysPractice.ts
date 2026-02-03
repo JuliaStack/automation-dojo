@@ -1,19 +1,19 @@
 //1 - check if the input is an array
-export function isArray(array: any[]): boolean {
+export function isArray(array: unknown): boolean {
   return Array.isArray(array);
 }
 console.log(isArray([1, 2, 3]));
 console.log(isArray("apple", "banana", "cherry"));
 
 //2 - clone an array
-export function cloneArray(array: any[]): any[] {
+export function cloneArray(array: unknown[]): unknown[] {
   return array.slice();
 }
 console.log(cloneArray([1, 2, 4, 0]));
 console.log(cloneArray([1, 2, [4, 0]]));
 
 //3 - get the first element of an array
-export function getFirstElement(array: any[]): any {
+export function getFirstElement(array: unknown[]): unknown {
   if (array.length > 0) {
     return array[0];
   } else {
@@ -24,7 +24,7 @@ console.log(getFirstElement([99, 2, 3]));
 console.log(getFirstElement([]));
 
 //4 - get the last element of an array
-export function getLastElement(array: any[]): any {
+export function getLastElement(array: unknown[]): unknown {
   if (array.length > 0) {
     return array[array.length - 1];
   } else {
@@ -35,8 +35,8 @@ console.log(getLastElement([1, 2, 88]));
 console.log(getLastElement([]));
 
 //5 - array to string conversion
-export function arrayToString(array: any[]): string {
-  return array.toString();
+export function arrayToString(array: unknown[]): string {
+  return array.join("+");
 }
 console.log(arrayToString([1, 2, 3, 4]));
 console.log(arrayToString(["red", "green", "white", "black"]));
@@ -67,7 +67,7 @@ console.log(sortArrayAsc([34, 12, 5, 66, 1]));
 console.log(sortArrayAsc([3, -2, 0, 8, 7, -5, 909, 3.14]));
 
 //concat two arrays
-export function concatArrays(array1: any[], array2: any[]): any[] {
+export function concatArrays(array1: unknown[], array2: unknown[]): unknown[] {
   return array1.concat(array2);
 }
 console.log(concatArrays([1, 9], [8, 4]));
