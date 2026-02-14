@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import { generateRandomUser } from "../../utils/testData";
+import { generateRandomUser } from "../../../tests/utils/testData";
 
 export class SignUpPage {
   page: Page;

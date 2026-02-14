@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { SignUpPage, user } from "../conduitApp/pages/signUpPage";
+import { SignUpPage, user } from "../../apps/conduitApp/pages/signUpPage";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("https://demo.learnwebdriverio.com/");

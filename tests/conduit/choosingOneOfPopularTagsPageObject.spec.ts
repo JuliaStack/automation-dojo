@@ -1,7 +1,7 @@
 //tapping on one of popular tags should filter articles by that tag
 import { test, expect } from "@playwright/test";
-import { SignUpPage, user } from "../conduitApp/pages/signUpPage";
-import { PopularTags } from "../conduitApp/pages/PopularTags";
+import { SignUpPage, user } from "../../apps/conduitApp/pages/signUpPage";
+import { PopularTags } from "../../apps/conduitApp/pages/PopularTags";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("https://demo.learnwebdriverio.com/");
