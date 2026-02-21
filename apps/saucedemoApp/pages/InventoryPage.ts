@@ -4,21 +4,33 @@ import { HeaderComponent } from "../components/HeaderComponent";
 
 export class InventoryPage extends BasePage {
   readonly header: HeaderComponent;
-  readonly inventoryItemLocator: Locator;
+
+  private readonly inventoryItems: Locator;
+  private readonly firstItem: Locator;
+  private readonly firstItemName: Locator;
+  private readonly firstItemAddButton: Locator;
 
   constructor(page: Page) {
     super(page);
+
     this.header = new HeaderComponent(page);
-    this.inventoryItemLocator = this.page.locator(".inventory_item");
+
+    this.inventoryItems = this.page.locator(".inventory_item");
+    this.firstItem = this.inventoryItems.first();
+    this.firstItemName = this.firstItem.locator(".inventory_item_name");
+    this.firstItemAddButton = this.firstItem.getByRole("button", {
+      name: "Add to cart",
+    });
   }
 
-  async addFirstItemToCart() {
-    const firstItem = this.inventoryItemLocator.first();
-    const addBtn = firstItem.getByRole("button", { name: "Add to cart" });
+  async getFirstItemName(): Promise<string> {
+    await expect(this.firstItemName).toBeVisible();
+    return (await this.firstItemName.innerText()).trim();
+  }
 
-    await expect(addBtn).toBeVisible({ timeout: 5000 });
-    await addBtn.click();
-
-    return await firstItem.locator(".inventory_item_name").textContent();
+  async addFirstItemToCart(): Promise<string> {
+    await expect(this.firstItemAddButton).toBeVisible();
+    await this.firstItemAddButton.click();
+    return await this.getFirstItemName();
   }
 }

@@ -34,10 +34,9 @@ test(
     expect(checkoutItemName).toBe(firstProductName);
 
     // Finish purchase
-    await checkoutPage.finishPurchase();
+    await checkoutPage.finishCheckout();
 
     // Verify purchase completion
-    await expect(checkoutPage.confirmationMessageLocator).toBeVisible();
     await expect(checkoutPage.confirmationMessageLocator).toHaveText(
       "Thank you for your order!",
     );
