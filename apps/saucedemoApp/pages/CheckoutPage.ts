@@ -1,4 +1,4 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, test } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class CheckoutPage extends BasePage {
@@ -36,7 +36,7 @@ export class CheckoutPage extends BasePage {
     await this.continueButtonLocator.click();
   }
 
-  async finishPurchase() {
+  async finishCheckout() {
     await this.finishButtonLocator.click();
   }
 
